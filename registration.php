@@ -14,25 +14,25 @@
         <label>First name </label><br/>
         <input type="text" name="firstname" required>
 
-        <label>Surname </label><br/>
+        <br/></br><label>Surname </label><br/>
         <input type="text" name="surname" required>
 
-        <label>Middle name </label><br/>
+        <br/></br><label>Middle name </label><br/>
         <input type="text" name="middlename" required>
 
-        <label>Matric number </label><br/>
+        <br/></br><label>Matric number </label><br/>
         <input type="text" name="matricnum" required>
 
-        <label>Email address </label><br/>
+        <br/></br><label>Email address </label><br/>
         <input type="text" name="emailaddress" required>
 
-        <label>Username </label><br/>
+        <br/></br><label>Username </label><br/>
         <input type="text" name="username" required>
 
-        <label>Phone number </label><br/>
+        <br/></br><label>Phone number </label><br/>
         <input type="text" name="phonenumber" required>
 
-        <label>Password </label><br/>
+        <br/></br><label>Password </label><br/>
         <input type="text" name="password" required>
 
     </div>
