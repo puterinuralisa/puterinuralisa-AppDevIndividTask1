@@ -75,6 +75,9 @@ border: 2px solid white;
 
 }
 
+a {
+  color: #AE388B;
+}
 
 
 </style>
@@ -113,7 +116,9 @@ border: 2px solid white;
 
         <hr class="mb-3"> 
         <input style="margin: 4px 2px;" class="btn btn-primary" type="submit" name="submit" id="submit" value="REGISTER">
-        </div> 
+        <a href="index.php"> Have an account? Login here.</a><br>
+    
+    </div> 
     </div>
     </form>
 </div>
