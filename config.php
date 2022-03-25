@@ -1,8 +1,14 @@
 <?php 
 
-$db_user = "root";
-$db_pass = "";
-$db_name = "registrationaccount";
+$server = "localhost";
+$user = "root";
+$pass = "";
+$database = "registrationaccount";
 
-$db = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_pass);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn = mysqli_connect($server, $user, $pass, $database);
+
+if (!$conn) {
+    die("<script>alert('Connection Failed.')</script>");
+}
+
+?>
