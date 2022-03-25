@@ -1,42 +1,104 @@
 <?php
-require_once('config.php');
+include 'config.php';
+
+error_reporting(0);
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
+}
+
+if (isset($_POST['submit'])) {
+	    $firstname     = $_POST['firstname'];
+        $surname       = $_POST['surname'];
+        $emailaddress  = $_POST['emailaddress'];
+        $username      = $_POST['username'];
+        $phonenumber   = $_POST['phonenumber'];
+        $password      = $_POST['password'];
+
+        $sql = "SELECT * FROM registrationaccount WHERE emailaddress='$emailaddress'";
+		$result = mysqli_query($conn, $sql);
+		if (!$result->num_rows > 0) {
+			$sql = "INSERT INTO registrationaccount (firstname, surname, emailaddress, username, phonenumber, password)
+					VALUES ('$firstname', '$surname', '$emailaddress', '$username', '$phonenumber', '$password')";
+			$result = mysqli_query($conn, $sql);
+			if ($result) {
+				echo "<script>alert('User registered! Please proceed to the login page')</script>";
+			} else {
+				echo "<script>alert('Error! Please try again.')</script>";
+			}
+            
+		}
+        else {
+			echo "<script>alert('Woops! Email Already Exists.')</script>";
+		}
+		
+	} 
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title> Registration Form | PHP</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
 </head>
 <body>
 
-<div>
-  
-</div>
+<style>
+body {font-family: Arial, Helvetica, sans-serif; text-align:center;}
+form { 
+  margin: auto;
+  width: 50%;
+  border: 2px solid black;
+  padding: 10px;
+  background-color:#FF8976;
+  border-radius: 10px;
+}
+
+body,html{
+margin:auto;
+padding:25px;
+heights:50%;
+background:#FFE5B4;
+}
+
+input[type=text]{
+    margin:auto;
+    width:70%;
+}
+
+input[type=submit]{
+background-color: #AA1945;
+border: 2px solid white;
+
+}
+
+
+
+</style>
+
+
 
 <div>
-    <form action="register.php" method="post">
+    <form style="text-align: center;"  method="post">
         <div class="container">
          
         <div class="row">
-        <div class="col-sm-3"> 
+       
         
         <div style="font-size:26px;font-weight:600">REGISTRATION FORM</div>
         
-        <p> Please fill in your information correctly. </p>
+        <p>Please fill in all the required information. </p>
         <hr class="mb-3"> 
         
         <label><b>First name</b></label><br/>
         <input class="form-control" type="text" name="firstname" required>
-
+        
         <br/><label><b>Surname</b></label><br/>
         <input class="form-control" type="text" name="surname" required>
-
-        <br/><label><b>Middle name</b></label><br/>
-        <input class="form-control" type="text" name="middlename" required>
-
-        <br/><label><b>Matric number</b></label><br/>
-        <input class="form-control" type="text" name="matricnum" required>
-
+        
         <br/><label><b>Email address</b></label><br/>
         <input class="form-control" type="text" name="emailaddress" required>
 
@@ -50,24 +112,11 @@ require_once('config.php');
         <input class="form-control" type="text" name="password" required>
 
         <hr class="mb-3"> 
-        <input class="btn btn-primary" type="submit" name="register" id="registeration" value="REGISTER">
+        <input style="margin: 4px 2px;" class="btn btn-primary" type="submit" name="submit" id="submit" value="REGISTER">
         </div> 
     </div>
     </form>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script type="text/javascript">
-    $(function(){
-        $('#registeration').click(function(){
-            Swal.fire({
-            'title': 'Hello, welcome! ',
-            'text': 'This is the registration page. Kindly fill in your details here to register.',
-            'type': 'success'
-             })   
-        });
-    }); 
-     
-</script>
 </body>
 </hmtl>
+
