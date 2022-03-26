@@ -126,9 +126,11 @@ if (isset($_POST['loginbutton'])) {
       <input type="password" placeholder="Enter Password" id="password" name="password" value="<?php echo $_POST['password']; ?>" required>
 
       <button type="submit" id="loginbutton" name="loginbutton" class="loginbutton">Login</button><br>
+      
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
+      
     </div>
 
     <div class="container-x">
