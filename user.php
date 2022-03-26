@@ -1,12 +1,13 @@
+<!-- PUTERI NUR ALISA BINTI ISMAIL
+A19ET0362
+SECJ3104 APPLICATION DEVELOPMENT 
+INDIVIDUAL TASK 1 -->
 
-<?php 
-
+<?php
 session_start();
-
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -18,19 +19,16 @@ if (!isset($_SESSION['username'])) {
     <title>Document</title>
 </head>
 <body>
-<style>
-
-body{
-    background-color:pink;
-    font-size:20px;
-    text-align:center;
-}
-
-</style>
+    <style>
+        body {
+            background-color: pink;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
 
     <?php echo "<h1>Welcome, dear " . $_SESSION['username'] . "</h1>"; ?>
     <a href="logout.php">Logout</a><br>
     <img src="img/welcome.gif" alt="Avatar" class="avatar">
-  
 </body>
 </html>
