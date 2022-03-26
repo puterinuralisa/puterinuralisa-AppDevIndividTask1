@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
             border: 2px solid white;
 
         }
-
+ 
         a {
             color: #AE388B;
         }
